@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var count=0;
+        var id;
+        var start = function()
+        {
+            id=setInterval(
+                function increase(){
+                    count++;
+                    document.getElementById("data").innerHTML=count; 
+                }
+           ,1000 )
+        }
+
+        var stop = function()
+        {
+            clearInterval(id);
+            count=0;
+            document.getElementById("data").innerHTML=count;
+        }
+
+        var pause = function()
+        {
+            clearInterval(id);
+        }
+
+        var resume = function()
+        {
+            start();
+        }
+    </script>
+</head>
+<body>
+    <button onclick="start()">START</button>
+    <button onclick="pause()">PAUSE</button>
+    <button onclick="resume()">RESUME</button>
+    <button onclick="stop()">STOP</button>
+
+    <h1 id="data">0</h1>
+</body>
+</html>
